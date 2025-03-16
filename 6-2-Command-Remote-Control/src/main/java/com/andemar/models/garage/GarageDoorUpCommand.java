@@ -15,6 +15,11 @@ public class GarageDoorUpCommand implements Command {
   }
 
   @Override
+  public void undo() {
+    door.down();
+  }
+
+  @Override
   public String toString() {
     return "GarageDoorUpCommand{" +
         "door=" + door +

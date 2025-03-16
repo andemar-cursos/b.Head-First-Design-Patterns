@@ -15,6 +15,11 @@ public class CeilingFanOnCommand implements Command {
   }
 
   @Override
+  public void undo() {
+    ceilingFan.off();
+  }
+
+  @Override
   public String toString() {
     return "CeilingFanOnCommand{" +
         "ceilingFan=" + ceilingFan +

@@ -15,6 +15,11 @@ public class LightOnCommand implements Command {
   }
 
   @Override
+  public void undo() {
+    light.off();
+  }
+
+  @Override
   public String toString() {
     return "LightOnCommand{" +
         "light=" + light +
