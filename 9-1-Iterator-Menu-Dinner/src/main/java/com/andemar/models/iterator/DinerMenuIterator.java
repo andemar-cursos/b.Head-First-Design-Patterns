@@ -1,8 +1,9 @@
 package com.andemar.models.iterator;
 
 import com.andemar.models.MenuItem;
+import java.util.Iterator;
 
-public class DinerMenuIterator implements Iterator {
+public class DinerMenuIterator implements Iterator<MenuItem> {
 
   private final MenuItem[] items;
   private int position = 0;
@@ -12,14 +13,19 @@ public class DinerMenuIterator implements Iterator {
   }
 
   @Override
+  public MenuItem next() {
+    MenuItem item = items[position];
+    position = position + 1;
+    return item;
+  }
+
+  @Override
   public boolean hasNext() {
     return position < items.length && items[position] != null;
   }
 
   @Override
-  public Object next() {
-    MenuItem item = items[position];
-    position = position + 1;
-    return item;
+  public void remove() {
+    throw new UnsupportedOperationException("You shouldn't be trying to remove menu items.");
   }
 }

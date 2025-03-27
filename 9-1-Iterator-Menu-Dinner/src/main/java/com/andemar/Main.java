@@ -2,7 +2,7 @@ package com.andemar;
 
 import com.andemar.models.DinerMenu;
 import com.andemar.models.PancakeHouseMenu;
-import com.andemar.models.iterator.Waitress;
+import com.andemar.models.Waitress;
 import com.andemar.models.iterator.WaitressWithOutIterator;
 
 public class Main {

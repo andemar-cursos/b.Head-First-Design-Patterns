@@ -1,11 +1,10 @@
 package com.andemar.models;
 
-import com.andemar.models.iterator.Iterator;
-import com.andemar.models.iterator.PancakeHouseMenuIterator;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu{
   List<MenuItem> menuItems;
 
   public PancakeHouseMenu() {
@@ -25,7 +24,8 @@ public class PancakeHouseMenu {
     return this.menuItems;
   }
 
-  public Iterator getIterator() {
-    return new PancakeHouseMenuIterator(menuItems);
+  @Override
+  public Iterator<MenuItem> createIterator() {
+    return menuItems.iterator();
   }
 }
