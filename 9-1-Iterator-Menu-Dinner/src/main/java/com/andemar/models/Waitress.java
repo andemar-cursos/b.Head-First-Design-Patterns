@@ -1,21 +1,19 @@
 package com.andemar.models;
 
 import java.util.Iterator;
+import java.util.List;
 
 public class Waitress {
-  private final Menu pancakeHouseMenu;
-  private final Menu dinerMenu;
+  private final List<Menu> menus;
 
-  public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
-    this.pancakeHouseMenu = pancakeHouseMenu;
-    this.dinerMenu = dinerMenu;
+  public Waitress(List<Menu> menus) {
+    this.menus = menus;
   }
 
   public void printMenu() {
-    System.out.println("MENU\n----\nBREAKFAST");
-    printMenu(pancakeHouseMenu.createIterator());
-    System.out.println("\nLUNCH");
-    printMenu(dinerMenu.createIterator());
+    menus.stream()
+        .map(Menu::createIterator)
+        .forEach(this::printMenu);
   }
 
   private void printMenu(Iterator<MenuItem> iterator) {
